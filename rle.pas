@@ -55,6 +55,7 @@ begin
 	runindx := runindx + 1;
 	ret.siz := runindx;
 	ret.old_siz := high(raw_data);
+	setLength(ret.dat, ret.siz+1);
 	getRuns := ret;
 end;
 
@@ -79,6 +80,7 @@ begin
 		end;
 		outindx := outindx + 2;
 	end;
+	setLength(ret, outindx+1);
 	runsToByteArr := ret;
 end;
 
