@@ -8,8 +8,8 @@ type
 	end;
 	TRuns = record 
 		dat : array of TRun;
-		siz : size_t;
-		old_siz : size_t;
+		siz : UInt32;
+		old_siz : UInt32;
 	end;
 	bytearr = array of byte;
 
@@ -33,7 +33,7 @@ function getRuns(raw_data : array of byte): TRuns;
 var
 	count: byte;
 	val: byte;
-	indx, runindx: size_t;
+	indx, runindx: UInt32;
 	ret: TRuns;
 begin
 	count := 1;
@@ -61,7 +61,7 @@ end;
 
 function runsToByteArr(runs : TRuns): bytearr;
 var
-	i, outindx : size_t;
+	i, outindx : UInt32;
 	ret : bytearr;
 begin
 	outindx := 0;
@@ -86,7 +86,7 @@ end;
 
 function decodeBin(raw : bytearr) : TRuns;
 var
-	bindx, indx : size_t;
+	bindx, indx : UInt32;
 	ret : TRuns;
 begin
 	setLength(ret.dat, high(raw));
